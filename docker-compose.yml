@@ -28,7 +28,7 @@ services:
     environment:
       - VIRTUAL_HOST=theusers.live
       - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=theusers.live
+      - LETSENCRYPT_HOST=theusers.live,www.theusers.live
       - LETSENCRYPT_EMAIL=hi@intergestalt.info
 
   ftpd:
