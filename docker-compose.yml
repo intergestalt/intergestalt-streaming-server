@@ -6,10 +6,15 @@ services:
     image: codeworksio/streaming-server
     container_name: streaming-server
     volumes:
-      - ./mounts/var/lib/streaming:/var/lib/streaming:Z
+      - ./mounts/var/lib/streaming:/var/lib/streaming
     ports:
       - "1935:1935"
       - "8080:8080"
+    environment:
+      - VIRTUAL_HOST=stream.theusers.live
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=stream.theusers.live
+      - LETSENCRYPT_EMAIL=hi@intergestalt.info
 
   streaming-consumer:
     image: codeworksio/nginx
@@ -18,3 +23,32 @@ services:
       - ./www:/var/www:ro
     ports:
       - "9999:8080"
+    environment:
+      - VIRTUAL_HOST=theusers.live
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=theusers.live
+      - LETSENCRYPT_EMAIL=hi@intergestalt.info
+
+  frontproxy:
+    restart: always
+    image: jwilder/nginx-proxy
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "certs-volume:/etc/nginx/certs:ro"
+      - "/etc/nginx/vhost.d"
+      - "/usr/share/nginx/html"
+  nginx-letsencrypt-companion:
+    restart: always
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - "certs-volume:/etc/nginx/certs"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    volumes_from:
+      - "frontproxy"
+volumes:
+  certs-volume:
