@@ -12,5 +12,5 @@ KEY="test"                                     # Clé à récupérer sur l'event
 ffmpeg \
     -re \
     -i "$SOURCE" \
-    -c copy
+    -c copy \
     -f flv "$YOUTUBE_URL/$KEY" \
