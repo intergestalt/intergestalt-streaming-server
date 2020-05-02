@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ps u | grep ffmpeg
+ps aux | grep ffmpeg

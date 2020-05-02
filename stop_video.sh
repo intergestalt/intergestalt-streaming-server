@@ -1,4 +1,4 @@
 #!/bin/bash
 
 killall ffmpeg
-ps u | grep ffmpeg
+ps aux | grep ffmpeg
