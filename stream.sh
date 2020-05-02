@@ -4,7 +4,7 @@
 
 # Configurer youtube avec une résolution 720p. La vidéo n'est pas scalée.
 
-VBR="2500k"                                    # Bitrate de la vidéo en sortie
+VBR="1600k"                                    # Bitrate de la vidéo en sortie
 FPS="30"                                       # FPS de la vidéo en sortie
 QUAL="medium"                                  # Preset de qualité FFMPEG
 YOUTUBE_URL="rtmp://stream.theusers.live/live"  # URL de base RTMP youtube
