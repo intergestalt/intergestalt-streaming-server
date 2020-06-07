@@ -35,7 +35,7 @@ Use
 
 Stream directly from OBS:
 ````
-URL: https://stream.theusers.live/live
+URL: rtmp://stream.theusers.live/live
 key: test
 ````
 
