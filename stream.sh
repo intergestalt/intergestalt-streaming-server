@@ -7,7 +7,7 @@
 VBR="1600k"                                    # Bitrate de la vidéo en sortie
 FPS="30"                                       # FPS de la vidéo en sortie
 QUAL="fast"                                    # Preset de qualité FFMPEG
-YOUTUBE_URL="rtmp://stream.theusers.live/live"  # URL de base RTMP youtube
+YOUTUBE_URL="rtmp://rec.stream.intergestalt.cloud/live"  # URL de base RTMP youtube
 
 SOURCE="$1"              # Source UDP (voir les annonces SAP)
 KEY="test"                                     # Clé à récupérer sur l'event youtube
