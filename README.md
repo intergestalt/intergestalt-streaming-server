@@ -19,10 +19,14 @@ Develop
 Deploy
 ------
 
+install docker and docker compose
 ````
 apt update -y && apt upgrade -y
 apt install docker.io  docker-compose git -y
-git pull <THIS_REPO>
+
+install streaming server
+```
+git clone <THIS_REPO>
 cd <THIS_REPO>
 # check domains in docker-compose.yml and connect server with DNS
 docker-compose up
