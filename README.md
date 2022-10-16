@@ -39,7 +39,7 @@ Use
 
 Stream directly from OBS:
 ````
-URL: rtmp://stream.theusers.live/live
+URL: rtmp://stream.intergestalt.cloud/live
 key: test
 ````
 
